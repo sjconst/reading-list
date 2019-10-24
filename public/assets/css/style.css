@@ -1,0 +1,24 @@
+/* Color Palette 
+ taupe/gray: #80766f rgb(128,118,111)
+ beige: #b1976a rgb(177,151,106)
+ dark green: 373e2a rgb(55,62,42)
+ orange: rgb(164,76,4)
+ bright green: 2c4c04 rgb(44,76,4)
+*/
+
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("../images/books.jpg");
+    background-size: cover;
+    height: 100%;
+}
+
+.container {
+    background-color: rgba(128,118,111, 0.75);
+    padding: 50px;
+    min-height: 100%;
+    overflow: hidden;
+}

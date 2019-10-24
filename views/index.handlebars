@@ -1,0 +1,53 @@
+<div class="container">
+    <h1 style="font-family: 'Jomolhari', serif; font-weight: bold">My Reading List</h1>
+    <div class="row">
+        <div class="col-6">
+            <h2 style="font-family: 'Liu Jian Mao Cao', cursive; font-weight: bold;">Books to Read</h2>
+            <ul>              
+              {{#each books}}
+                {{#unless is_read}}
+                  <li>
+                      <p>Title: {{this.title}}</p>
+                      <p>Author: {{this.authorFirstName}} {{authorLastName}}</p>
+                      <button class="markRead" data-id="{{this.id}}" data-read="is_read">Mark as read</button>
+                  </li>
+                {{/unless}}
+              {{/each}}
+            </ul>
+            <h2 style="font-family: 'Liu Jian Mao Cao', cursive;">Add a Book</h2>
+              <form class="create-form">
+                <div class="form-group">
+                  <label for="title">Title:</label>
+                  <input type="text" id="title" name="title">
+                </div>
+                <div class="form-group">
+                  <label for="firstName">Author first name:</label><br>
+                  <input type="text" id="firstName" name="firstName">
+                </div>
+                <div class="form-group">
+                  <label for="firstName">Author last name:</label><br>
+                  <input type="text" id="lastName" name="lastName">
+                </div>
+                <button type="submit">Add Book</button>
+              </form>
+        </div>
+        <div class="col-6">
+            <h2 style="font-family: 'Liu Jian Mao Cao', cursive; font-weight: bold">Read</h2>
+            <ul>
+              {{#each books}}
+                {{#if is_read}}
+                  <li>
+                      <p>Title: {{this.title}}</p>
+                      <p>Author: {{this.authorFirstName}} {{authorLastName}}</p>
+                      <p>Date read: {{this.date_read}}</p>
+                      <button class="delete">Delete</button>
+                  </li>
+                {{/if}}
+              {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
