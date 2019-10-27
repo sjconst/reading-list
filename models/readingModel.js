@@ -13,10 +13,13 @@ var readingModel = {
     });
   },
   insertOne: (col, val) => {
-    orm.update("reading", col, val);
+    orm.insertOne("reading", col, val);
   },
   updateOne: function(col, val, condition) {
-    orm.delete("reading", col, val, condition);
+    orm.updateOne("reading", col, val, condition);
+  },
+  delete: function(col, val){
+    orm.delete("reading", col, val)
   }
 };
 

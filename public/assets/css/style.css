@@ -17,8 +17,35 @@ body {
 }
 
 .container {
-    background-color: rgba(128,118,111, 0.75);
+    background-color: rgba(128,118,111, 0.25);
     padding: 50px;
     min-height: 100%;
     overflow: hidden;
+}
+
+li {
+    border-bottom: 2px solid gray; 
+    margin-bottom: 5px; 
+    padding-bottom: 5px;
+}
+
+.delete {
+    margin-left: 5px;
+}
+
+.addBook {
+    margin-bottom: 30px;
+    height: 30px;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.bookDiv {
+    /* background-color: rgba(55,62,42, 0.3); */
+    background-image: url("../images/notebook.png");
+    background-size: cover;
+    margin-bottom: 10px;
+    padding: 20px;
 }

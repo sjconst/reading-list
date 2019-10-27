@@ -11,25 +11,31 @@ let orm = {
       });
     },
     all: (table, cb) => {
-        var queryString = `SELECT * FROM ${table}`;   
-        console.log(queryString); 
+        var queryString = `SELECT * FROM ${table}`;        
         connection.query(queryString, (err, result) => {
             if(err) throw err;
             return cb(result);
         })
     },
     insertOne: (table, col, val) => {
-        let queryString = `INSERT INTO ${table} (${col}) VALUES (${val})`;
+        let queryString = `INSERT INTO ${table} (${col} ) VALUES (${val})`;      
         connection.query(queryString, (err) => {
             if(err) throw err;
-            console.log("Successfully added to table.")
+            console.log("Successfully added to table.");
         })
     },
     updateOne: (table, col, val, condition) => {
-        let queryString = `UPDATE ${table} SET ${col}="${val}" WHERE ${condition}`; 
+        let queryString = `UPDATE ${table} SET ${col}=${val} WHERE ${condition}`; 
         connection.query(queryString, err => {
             if(err) throw err;
             console.log("Record updated.")
+        })
+    },
+    delete: (table, col, val) => {
+        let queryString = `DELETE FROM ${table} WHERE ${col}=${val}`;
+        connection.query(queryString, err => {
+            if(err) throw err;
+            console.log("Record deleted.")
         })
     }
   };
