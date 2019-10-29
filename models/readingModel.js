@@ -5,11 +5,11 @@ var readingModel = {
   all: cb => {
     orm.all("reading", res => cb(res));
   }, 
-  insertOne: (col, val, cb) => {
-    orm.insertOne("reading", col, val, res => cb(res));
+  insert: (col, val, cb) => {
+    orm.insert("reading", col, val, res => cb(res));
   },
-  updateOne: (col, val, condition, cb) => {
-    orm.updateOne("reading", col, val, condition, res => cb(res));
+  update: (col, val, col2, col2Val, cb) => {
+    orm.update("reading", col, val, col2, col2Val, res => cb(res));
   },
   delete: (col, val, cb) => {
     orm.delete("reading", col, val, res => cb(res))

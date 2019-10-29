@@ -7,10 +7,9 @@ $(function() {
       // Send the PUT request.
       $.ajax(`/api/books/${id}`, {
         type: "PUT",
-        data: readState,
+        data: readState
       }).then(
         function(){
-          console.log('success');
           location.reload(true);
         }
       );           
@@ -23,8 +22,7 @@ $(function() {
         lastName: $("#lastName").val().trim(),
       };
       //Send POST Request
-      $.post("/api/books", newBook, (req, res) => {
-        console.log("Book added");       
+      $.post("/api/books", newBook, (req, res) => {              
         location.reload(true);
       })
     });
@@ -34,8 +32,7 @@ $(function() {
       $.ajax({
         url: `/api/books/${id}`, 
         method: "DELETE",
-        success: function(response){
-          console.log("deleted!!!!");
+        success: function(response){          
           location.reload(true);
         }
       })
