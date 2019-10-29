@@ -3,13 +3,6 @@ const connection = require("../config/connection.js");
 let SQL = require('sql-template-strings');
 //SQL queries
 let orm = {
-    selectAllWhere: (table, col, val, cb) => {
-      let queryString = `SELECT * FROM ${table} WHERE ${col}=${val}`;  
-      connection.query(queryString, (err, result) => {
-        if (err) throw err;
-        return cb(result);
-      });
-    },
     all: (table, cb) => {
         var queryString = `SELECT * FROM ${table}`;        
         connection.query(queryString, (err, result) => {
@@ -17,25 +10,28 @@ let orm = {
             return cb(result);
         })
     },
-    insertOne: (table, col, val) => {
+    insertOne: (table, col, val, cb) => {
         let queryString = `INSERT INTO ${table} (${col} ) VALUES (${val})`;      
-        connection.query(queryString, (err) => {
+        connection.query(queryString, (err, result) => {
             if(err) throw err;
             console.log("Successfully added to table.");
+            return cb(result);
         })
     },
-    updateOne: (table, col, val, condition) => {
+    updateOne: (table, col, val, condition, cb) => {
         let queryString = `UPDATE ${table} SET ${col}=${val} WHERE ${condition}`; 
-        connection.query(queryString, err => {
+        connection.query(queryString, (err, result) => {
             if(err) throw err;
-            console.log("Record updated.")
+            console.log("Record updated.");
+            return cb(result);
         })
     },
-    delete: (table, col, val) => {
+    delete: (table, col, val, cb) => {
         let queryString = `DELETE FROM ${table} WHERE ${col}=${val}`;
-        connection.query(queryString, err => {
+        connection.query(queryString, (err, result) => {
             if(err) throw err;
-            console.log("Record deleted.")
+            console.log("Record deleted.");
+            return cb(result);
         })
     }
   };

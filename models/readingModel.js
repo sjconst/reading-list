@@ -3,23 +3,16 @@ var orm = require("../config/orm.js");
 
 var readingModel = {
   all: cb => {
-    orm.all("reading", function(res) {
-      cb(res);
-    });
+    orm.all("reading", res => cb(res));
   }, 
-  selectAllWhere: (col, val, cb) => {
-    orm.selectAllWhere("reading", col, val, function(res) {
-      cb(res);
-    });
+  insertOne: (col, val, cb) => {
+    orm.insertOne("reading", col, val, res => cb(res));
   },
-  insertOne: (col, val) => {
-    orm.insertOne("reading", col, val);
+  updateOne: (col, val, condition, cb) => {
+    orm.updateOne("reading", col, val, condition, res => cb(res));
   },
-  updateOne: function(col, val, condition) {
-    orm.updateOne("reading", col, val, condition);
-  },
-  delete: function(col, val){
-    orm.delete("reading", col, val)
+  delete: (col, val, cb) => {
+    orm.delete("reading", col, val, res => cb(res))
   }
 };
 

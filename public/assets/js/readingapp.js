@@ -8,13 +8,12 @@ $(function() {
       $.ajax(`/api/books/${id}`, {
         type: "PUT",
         data: readState,
-        dataType: "text"
       }).then(
         function(){
           console.log('success');
-          window.location.reload()
+          location.reload(true);
         }
-      );     
+      );           
     });
     $(".addBook").on("click", function(event) {
       event.preventDefault();
@@ -26,19 +25,18 @@ $(function() {
       //Send POST Request
       $.post("/api/books", newBook, (req, res) => {
         console.log("Book added");       
-      }).then(function() {
-        window.location.reload();
-      });
+        location.reload(true);
+      })
     });
     $(".delete").on("click", function(event) {      
       let id = $(this).data("id");    
-      console.log(id + " in readingapp")       
       // Send the DELETE request.
       $.ajax({
         url: `/api/books/${id}`, 
         method: "DELETE",
         success: function(response){
-          window.location.reload();
+          console.log("deleted!!!!");
+          location.reload(true);
         }
       })
     });
